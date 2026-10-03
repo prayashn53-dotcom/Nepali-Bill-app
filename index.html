@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nepali Bill</title>
+<style>
+:root{--ac:#4f46e5;--bg:#f1f3f9;--cd:#fff;--tx:#1e2235;--mu:#6b7189;--bd:#e3e6f0;--ok:#16a34a;--wa:#d97706;--er:#dc2626;--sh:0 2px 10px rgba(30,34,53,.08)}
+[data-theme=dark]{--bg:#0f1220;--cd:#191d31;--tx:#e8eaf6;--mu:#98a0c0;--bd:#2b3050}
+*{box-sizing:border-box;margin:0}html,body{overflow-x:hidden}
+body{font:16px/1.45 system-ui,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--tx);padding-bottom:80px}
+button,input,select,textarea{font:inherit;color:inherit}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--cd);min-height:44px}
+label{display:block;font-size:.78rem;color:var(--mu);font-weight:600}label>*{margin-top:4px;font-weight:400;font-size:1rem}
+header{position:sticky;top:0;z-index:10;background:linear-gradient(135deg,var(--ac),#7c3aed);color:#fff;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.logo{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;background:#fff;color:var(--ac);display:grid;place-items:center;font-weight:800}
+header b{flex:1;line-height:1.1}header small{display:block;font-size:.65rem;opacity:.85;font-weight:400}
+.chip{background:#fff3;border:0;color:#fff;border-radius:10px;min-height:40px;padding:0 12px;cursor:pointer}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;background:var(--bg);position:sticky;top:68px;z-index:9;scrollbar-width:none}
+nav a{white-space:nowrap;padding:9px 14px;border-radius:99px;background:var(--cd);color:var(--mu);font-weight:600;font-size:.85rem;cursor:pointer;box-shadow:var(--sh)}
+nav a.on{background:var(--ac);color:#fff}
+#view{padding:4px 14px 20px;max-width:1100px;margin:auto}
+.card{background:var(--cd);border-radius:16px;padding:16px;box-shadow:var(--sh);margin-bottom:14px}.card h3{font-size:1rem;margin-bottom:10px}
+.hero{background:linear-gradient(135deg,var(--ac),#7c3aed);color:#fff}.hero p{opacity:.85;margin:4px 0 12px}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:0 16px;min-height:44px;font-weight:600;cursor:pointer;transition:.15s}
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}.btn.g{background:transparent;color:var(--tx);border:1px solid var(--bd)}.btn.r{background:var(--er)}.btn.s{min-height:36px;padding:0 10px;font-size:.82rem}.hero .btn{background:#fff;color:var(--ac)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.stat{background:var(--cd);border-radius:16px;padding:14px;box-shadow:var(--sh);min-width:0}.stat small{color:var(--mu);font-size:.74rem;font-weight:600}.stat b{display:block;font-size:1.1rem;margin-top:3px;overflow-wrap:anywhere}
+.tools{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tools input{flex:1 1 150px}.tools select{flex:0 1 150px}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--bd);flex-wrap:wrap}.row:last-child{border:0}
+.row .i{flex:1 1 180px;min-width:0}.row small{display:block;color:var(--mu)}.acts{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:99px}.Paid{background:#16a34a22;color:var(--ok)}.Part{background:#d9770622;color:var(--wa)}.Due{background:#dc262622;color:var(--er)}
+.empty{text-align:center;color:var(--mu);padding:28px 8px}
+.fg{display:grid;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bars .b{margin:9px 0;font-size:.85rem}.bars .b div:first-child{display:flex;justify-content:space-between;gap:8px}.bars .t{height:10px;background:var(--bg);border-radius:9px;overflow:hidden;margin-top:3px}.bars .t i{display:block;height:100%;background:var(--ac);border-radius:9px}
+.legal{font-size:.78rem;color:var(--mu);background:var(--bg);padding:10px;border-radius:10px;margin-top:10px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:20;box-shadow:0 6px 18px #4f46e566;border-radius:99px;min-height:52px;padding:0 22px}
+#modal{position:fixed;inset:0;background:#0009;z-index:50;display:flex;align-items:flex-end;justify-content:center}#modal[hidden]{display:none}
+.mbox{background:var(--cd);width:100%;max-width:780px;max-height:94vh;overflow:auto;border-radius:18px 18px 0 0;padding:16px}
+.mbox h3{margin-bottom:12px}
+.item{border:1px solid var(--bd);border-radius:12px;padding:10px;margin-bottom:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.item>label:first-child{grid-column:1/-1}.item .btn{grid-column:1/-1}
+.tot{background:var(--bg);border-radius:12px;padding:12px;margin:10px 0}.tot div{display:flex;justify-content:space-between;padding:2px 0}.tot .g{font-weight:800;font-size:1.1rem}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.sticky{position:sticky;bottom:-16px;background:var(--cd);padding:10px 0}
+#toasts{position:fixed;top:12px;left:12px;right:12px;z-index:99;display:grid;gap:8px;justify-items:center;pointer-events:none}.toast{background:#111827;color:#fff;padding:10px 16px;border-radius:10px}.toast.e{background:var(--er)}
+/* invoice sheet (always white for printing) */
+.sheet{background:#fff;color:#111;padding:20px;border:1px solid #ddd;border-radius:8px;font-size:.86rem;overflow-x:auto}
+.sheet .hd{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ac);color:#fff;margin:-20px -20px 14px;padding:18px 20px;border-radius:8px 8px 0 0}
+.sheet h2{font-size:1.3rem;letter-spacing:1px}.sheet table{width:100%;border-collapse:collapse;margin:10px 0;min-width:360px}
+.sheet th,.sheet td{padding:7px 6px;text-align:right;border-bottom:1px solid #ddd}.sheet th:first-child,.sheet td:first-child{text-align:left}.sheet th{background:#eef0ff;color:var(--ac)}
+.sheet .tt{margin-left:auto;width:240px;max-width:100%}.sheet .tt div{display:flex;justify-content:space-between;padding:3px 0}.sheet .ty{font-weight:800;border-top:2px solid var(--ac);color:var(--ac)}
+@media print{#app{display:block}body.mo #app,header,nav,.fab,.noprint{display:none!important}body:not(.mo) #modal{display:none}#modal{position:static;background:none;display:block}.mbox{max-height:none;padding:0;overflow:visible}.sheet{border:0}.sheet,.sheet *{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:A4;margin:12mm}}
+@media(min-width:800px){.grid{grid-template-columns:repeat(4,1fr)}#modal{align-items:center}.mbox{border-radius:18px}.item{grid-template-columns:3fr 1fr 1.2fr 1fr auto}.item>label:first-child{grid-column:auto}.item .btn{grid-column:auto;align-self:end}}
+</style></head><body>
+<div id="app"><header><div class="logo">NB</div><b>Nepali Bill<small>Simple Billing. Smarter Records.</small></b><button class="chip" data-a="lang" id="lb"></button><button class="chip" data-a="theme">◐</button><button class="chip" data-a="acct" id="ub"></button></header>
+<nav id="nav"></nav><main id="view"></main><button class="btn fab" data-a="new" id="fab"></button></div>
+<div id="modal" hidden><div class="mbox" id="mc"></div></div><div id="toasts"></div><input type="file" id="imp" accept=".json" hidden>
+<script>
+/* Nepali Bill – single-file free local billing tool. Data is stored only in this browser/device. */
+const K='nb2',$=s=>document.querySelector(s),E=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const DEF={set:{name:'My Shop',addr:'',phone:'',pan:'',cur:'Rs.',vat:true,rate:13,lang:'en',theme:'light',foot:'Thank you for your business!'},docs:[]};
+let USER=null,db;try{USER=JSON.parse(localStorage.getItem('nb2.user'))}catch(e){}
+const GOOGLE_CLIENT_ID='';/* optional: paste your Google Client ID here */
+const dk=()=>K+':'+(USER?USER.email:'guest');
+function loadDb(){let d=null;try{d=JSON.parse(localStorage.getItem(dk()))}catch(e){}if(!d&&(!USER||USER.email=='guest')){try{d=JSON.parse(localStorage.getItem(K))}catch(e){}}d=d||structuredClone(DEF);d.set={...DEF.set,...d.set};d.docs=d.docs||[];d.cash=d.cash||[];db=d}
+loadDb();
+const sv=()=>{try{localStorage.setItem(dk(),JSON.stringify(db))}catch(e){toast('Storage unavailable',1)}};
+const NE={'Dashboard':'ड्यासबोर्ड','Sales List':'बिक्री सूची','Sales Orders':'बिक्री अर्डर','Purchases':'खरिद सूची','Sales Report':'बिक्री प्रतिवेदन','Management Report':'व्यवस्थापन प्रतिवेदन','Settings':'सेटिङ','New':'नयाँ','Total Sales':'कुल बिक्री','Paid':'भुक्तानी भएको','Due':'बाँकी','Partially Paid':'आंशिक भुक्तानी','Save':'सुरक्षित गर्नुहोस्','Cancel':'रद्द','Search':'खोज्नुहोस्','Edit':'सम्पादन','Delete':'मेट्नुहोस्','Print':'प्रिन्ट','Preview':'हेर्नुहोस्','Subtotal':'उप-जम्मा','Discount':'छुट','Grand Total':'कुल जम्मा','Amount Due':'बाँकी रकम','Total Paid':'कुल भुक्तानी','Total Due':'कुल बाँकी','Invoices':'बिलहरू','Collected':'संकलित','Outstanding':'बाँकी रकम','Total Purchases':'कुल खरिद','Gross Profit':'कुल नाफा','VAT Payable':'तिर्नुपर्ने मू.अ.कर','Receivable':'लिनुपर्ने','Payable':'तिर्नुपर्ने','Pending Orders':'बाँकी अर्डर','Top Products':'शीर्ष सामान','Top Customers':'शीर्ष ग्राहक','Top Suppliers':'शीर्ष आपूर्तिकर्ता','Welcome':'स्वागत छ','Customer':'ग्राहक','Supplier':'आपूर्तिकर्ता','Date':'मिति','Notes':'टिप्पणी','Add item':'सामान थप्नुहोस्','Qty':'परिमाण','Rate':'दर','Amount':'रकम','Total':'जम्मा','Today':'आज','This week':'यो हप्ता','This month':'यो महिना','This year':'यो वर्ष','All time':'सबै समय','To Sale':'बिक्रीमा बदल्नुहोस्','Duplicate':'नक्कल','VAT':'मू.अ.कर','Sales Invoice':'बिक्री बिल','Sales Order':'बिक्री अर्डर','Purchase Bill':'खरिद बिल','Print / Save PDF':'प्रिन्ट / PDF सेभ','Estimates':'अनुमानित बिल','Estimate':'अनुमानित बिल','Cashbook':'क्यासबुक','Voucher':'भौचर','Cash In':'नगद आम्दानी','Cash Out':'नगद खर्च','Balance':'मौज्दात','Sign out':'लगआउट'};
+const t=k=>db.set.lang=='ne'&&NE[k]||k;
+const TY={sale:{p:'INV-',l:'Sales List',n:'Sales Invoice',who:'Customer'},order:{p:'SO-',l:'Sales Orders',n:'Sales Order',who:'Customer'},estimate:{p:'EST-',l:'Estimates',n:'Estimate',who:'Customer'},purchase:{p:'PO-',l:'Purchases',n:'Purchase Bill',who:'Supplier'}};
+const fmt=n=>db.set.cur+' '+(+n||0).toLocaleString('en-IN',{maximumFractionDigits:2}),today=()=>new Date().toISOString().slice(0,10),uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+function toast(m,e){const d=document.createElement('div');d.className='toast'+(e?' e':'');d.textContent=m;$('#toasts').append(d);setTimeout(()=>d.remove(),2600)}
+/* automatic calculations (13% VAT optional per document) */
+function calc(d){const sub=d.items.reduce((a,x)=>a+x.q*x.r,0),disc=d.items.reduce((a,x)=>a+(+x.d||0),0),net=sub-disc,vat=d.vat?net*db.set.rate/100:0,total=net+vat;return{sub,disc,net,vat,total,due:Math.max(0,total-d.paid)}}
+const st=d=>{const c=calc(d);return c.due<=0&&c.total>0?'Paid':d.paid>0?'Part':'Due'},stl={Paid:'Paid',Part:'Partially Paid',Due:'Due'};
+const badge=d=>`<span class="badge ${st(d)}">${t(stl[st(d)])}</span>`;
+const nextNo=ty=>{const n=Math.max(0,...db.docs.filter(d=>d.t==ty).map(d=>parseInt(d.no.replace(/\D/g,''))||0))+1;return TY[ty].p+String(n).padStart(4,'0')};
+const S={v:'Dashboard',q:'',per:'All time'};
+const NAV=['Dashboard','sale','estimate','order','purchase','Cashbook','Sales Report','Management Report','Settings'];
+const navL=n=>TY[n]?t(TY[n].l):t(n);
+function render(){const r=document.documentElement;r.dataset.theme=db.set.theme;$('#ub').textContent='👤 '+(USER?USER.name.split(' ')[0].slice(0,9):'');$('.logo').innerHTML=db.set.logo?'<img src="'+db.set.logo+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">':'NB';$('#lb').textContent=db.set.lang=='ne'?'English':'नेपाली';
+ $('#nav').innerHTML=NAV.map(n=>`<a data-a="go" data-id="${n}" class="${S.v==n?'on':''}">${navL(n)}</a>`).join('');
+ $('#fab').textContent='+ '+(S.v=='Cashbook'?t('Voucher'):TY[S.v]?t(TY[S.v].n):t('Sales Invoice'));$('#view').innerHTML=V[TY[S.v]?'list':S.v]()}
+/* report helpers */
+function inR(d){const n=new Date(),x=new Date(d),td=today();return{'Today':d==td,'This week':(n-x)/864e5<7&&x<=n,'This month':d.slice(0,7)==td.slice(0,7),'This year':d.slice(0,4)==td.slice(0,4),'All time':true}[S.per]}
+const of=ty=>db.docs.filter(d=>d.t==ty&&inR(d.date));
+const agg=L=>L.reduce((a,d)=>{const c=calc(d);a.net+=c.net;a.vat+=c.vat;a.total+=c.total;a.paid+=d.paid;a.due+=c.due;a.n++;return a},{net:0,vat:0,total:0,paid:0,due:0,n:0});
+const stat=(l,v)=>`<div class="stat"><small>${t(l)}</small><b>${v}</b></div>`;
+const bar=(l,v,m,x)=>`<div class="b"><div><span>${E(l)}</span><b>${x??v}</b></div><div class="t"><i style="width:${m?Math.round(v/m*100):0}%"></i></div></div>`;
+const empty=m=>`<div class="empty">📄<p>${m}</p></div>`;
+const topN=(L,f)=>{const o={};L.forEach(d=>f(d,o));return Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,5)};
+const topBars=a=>a.length?a.map(([n,v])=>bar(n,v,a[0][1],fmt(v))).join(''):empty('No data');
+const perSel=()=>`<div class="tools noprint"><select id="per">${['Today','This week','This month','This year','All time'].map(o=>`<option value="${o}" ${S.per==o?'selected':''}>${t(o)}</option>`).join('')}</select><button class="btn g" data-a="printpage">${t('Print / Save PDF')}</button></div>`;
+const row=d=>`<div class="row"><div class="i"><b>${E(d.no)} · ${E(d.party||'—')}</b><small>${d.date} · ${fmt(calc(d).total)}</small></div>${badge(d)}<div class="acts"><button class="btn g s" data-a="view" data-id="${d.id}">${t('Preview')}</button><button class="btn g s" data-a="edit" data-id="${d.id}">${t('Edit')}</button>${d.t=='order'||d.t=='estimate'?`<button class="btn s" data-a="tosale" data-id="${d.id}">${t('To Sale')}</button>`:''}<button class="btn g s" data-a="dup" data-id="${d.id}">${t('Duplicate')}</button><button class="btn r s" data-a="del" data-id="${d.id}">✕</button></div></div>`;
+function lst(){const q=S.q.toLowerCase(),L=db.docs.filter(d=>d.t==S.v&&(!q||(d.no+d.party+d.phone).toLowerCase().includes(q))).reverse();return L.length?L.map(row).join(''):empty('Nothing here yet.')}
+const V={
+Dashboard(){const s=db.docs.filter(d=>d.t=='sale'),a=agg(s),td=today(),m=td.slice(0,7);
+ return `<div class="card hero"><h3>${t('Welcome')}, ${E(db.set.name)} 👋</h3><p>Simple Billing. Smarter Records.</p><button class="btn" data-a="new">+ ${t('Sales Invoice')}</button> <button class="btn" data-a="newt" data-id="purchase">+ ${t('Purchase Bill')}</button></div>
+ <div class="grid">${stat('Total Sales',fmt(a.total))}${stat('Total Paid',fmt(a.paid))}${stat('Total Due',fmt(a.due))}${stat('Invoices',a.n)}${stat('Today',fmt(agg(s.filter(d=>d.date==td)).total))}${stat('This month',fmt(agg(s.filter(d=>d.date.startsWith(m))).total))}${stat('Total Purchases',fmt(agg(db.docs.filter(d=>d.t=='purchase')).total))}${stat('Pending Orders',db.docs.filter(d=>d.t=='order').length)}</div>
+ <div class="card"><h3>${t('Sales List')}</h3>${s.length?[...s].reverse().slice(0,5).map(row).join(''):empty('No invoices yet.')}</div>`},
+list(){return `<div class="tools"><input id="q" placeholder="${t('Search')}…" value="${E(S.q)}"></div><div class="card" id="list">${lst()}</div>`},
+'Sales Report'(){const L=of('sale'),a=agg(L),by={};L.forEach(d=>by[d.date]=(by[d.date]||0)+calc(d).total);const days=Object.entries(by).sort().slice(-10),mx=Math.max(0,...days.map(x=>x[1]));
+ return perSel()+`<div class="grid">${stat('Total Sales',fmt(a.total))}${stat('VAT',fmt(a.vat))}${stat('Collected',fmt(a.paid))}${stat('Outstanding',fmt(a.due))}</div>
+ <div class="card bars"><h3>${t('Sales Report')} – ${a.n} ${t('Invoices')}</h3>${days.length?days.map(([d,v])=>bar(d,v,mx,fmt(v))).join(''):empty('No data')}</div>
+ <div class="card bars"><h3>${t('Top Products')}</h3>${topBars(topN(L,(d,o)=>d.items.forEach(x=>o[x.n]=(o[x.n]||0)+x.q*x.r-(+x.d||0))))}</div>
+ <div class="card"><h3>${t('Sales List')}</h3>${L.length?[...L].reverse().map(row).join(''):empty('No data')}</div>`},
+'Management Report'(){const s=agg(of('sale')),p=agg(of('purchase')),o=of('order').filter(d=>d.t=='order'),ov=o.reduce((a,d)=>a+calc(d).total,0);
+ return perSel()+`<div class="grid">${stat('Total Sales',fmt(s.total))}${stat('Total Purchases',fmt(p.total))}${stat('Gross Profit',fmt(s.net-p.net))}${stat('VAT Payable',fmt(s.vat-p.vat))}${stat('Receivable',fmt(s.due))}${stat('Payable',fmt(p.due))}${stat('Pending Orders',o.length+' · '+fmt(ov))}${stat('VAT','+'+fmt(s.vat)+' / −'+fmt(p.vat))}</div>
+ <div class="card bars"><h3>${t('Total Sales')} vs ${t('Total Purchases')}</h3>${bar(t('Total Sales'),s.total,Math.max(s.total,p.total),fmt(s.total))}${bar(t('Total Purchases'),p.total,Math.max(s.total,p.total),fmt(p.total))}</div>
+ <div class="card bars"><h3>${t('Top Customers')}</h3>${topBars(topN(of('sale'),(d,o)=>o[d.party||'Walk-in']=(o[d.party||'Walk-in']||0)+calc(d).total))}</div>
+ <div class="card bars"><h3>${t('Top Suppliers')}</h3>${topBars(topN(of('purchase'),(d,o)=>o[d.party||'—']=(o[d.party||'—']||0)+calc(d).total))}</div>
+ <p class="legal">Gross profit = sales (before VAT) − purchases (before VAT) for the selected period. It is an estimate, not a tax filing.</p>`},
+Settings(){const s=db.set,f=(k,l,tp='text')=>`<label>${l}<input id="s_${k}" type="${tp}" value="${E(s[k])}"></label>`;
+ return `<div class="card"><h3>Business</h3><div class="fg">${f('name','Business / Shop name')}${f('addr','Address')}${f('phone','Phone')}${f('pan','PAN / VAT no. (optional)')}${f('cur','Currency')}${f('foot','Invoice footer')}<label>Shop logo (image)<input type="file" id="lg" accept="image/*"></label>${s.logo?`<div><img src="${s.logo}" style="width:90px;height:90px;object-fit:cover;border-radius:50%"> <button class="btn g s" data-a="rmlogo">Remove logo</button></div>`:''}</div></div>
+ <div class="card"><h3>VAT</h3><div class="two"><label>New documents include VAT by default<select id="s_vat"><option value="1">On</option><option value="0" ${s.vat?'':'selected'}>Off</option></select></label>${f('rate','VAT rate %','number')}</div></div>
+ <button class="btn" data-a="saveset" style="width:100%">${t('Save')}</button>
+ <div class="card" style="margin-top:14px"><h3>Data</h3><div class="bar"><button class="btn g" data-a="export">Export JSON</button><button class="btn g" data-a="import">Import JSON</button><button class="btn r" data-a="clear">Clear all data</button></div>
+ <p class="legal">🔒 Data is stored only in this browser on this device. Nothing is sent online; no analytics. Export backups regularly.<br><br>This application is a free local invoice and record-keeping tool. It is not presented as an IRD-approved electronic billing system.</p></div>`}};
+/* modal */
+let CB=null,ED=null;const modal=h=>{$('#mc').innerHTML=h;$('#modal').hidden=false;document.body.classList.add('mo')},close=()=>{$('#modal').hidden=true;document.body.classList.remove('mo');ED=null};
+const ask=(m,f)=>{CB=f;modal(`<h3>Please confirm</h3><p>${m}</p><div class="bar"><button class="btn g" data-a="close">${t('Cancel')}</button><button class="btn r" data-a="yes">${t('Delete')}</button></div>`)};
+/* editor */
+function editor(ty,id){const o=id&&db.docs.find(x=>x.id==id);ED=o?structuredClone(o):{id:uid(),t:ty,no:nextNo(ty),date:today(),party:'',phone:'',items:[{n:'',q:1,r:0,d:0}],vat:db.set.vat,paid:0,notes:''};
+ const T=TY[ED.t],uq=f=>[...new Set(db.docs.filter(d=>d.t==ED.t||f=='n').flatMap(d=>f=='n'?d.items.map(x=>x.n):[d.party]).filter(Boolean))].map(v=>`<option value="${E(v)}">`).join('');
+ modal(`<h3>${o?t('Edit'):t('New')} ${t(T.n)}</h3><datalist id="dp">${uq('n')}</datalist><datalist id="dc">${uq('p')}</datalist>
+ <div class="fg"><div class="two"><label>No.<input data-f="no" value="${E(ED.no)}"></label><label>${t('Date')}<input type="date" data-f="date" value="${ED.date}"></label></div>
+ <label>${t(T.who)}<input data-f="party" list="dc" value="${E(ED.party)}"></label><label>${t('Phone')||'Phone'}<input data-f="phone" type="tel" value="${E(ED.phone)}"></label></div>
+ <h3 style="margin-top:14px">Items</h3><div id="its"></div><button class="btn g" data-a="additem" style="width:100%">+ ${t('Add item')}</button>
+ <label style="margin-top:10px">${t('Notes')}<textarea data-f="notes">${E(ED.notes)}</textarea></label>
+ <div class="two" style="margin-top:10px"><label>${t('VAT')} ${db.set.rate}%<select id="vt"><option value="1">On</option><option value="0" ${ED.vat?'':'selected'}>Off</option></select></label><label>${t('Total Paid')}<input type="number" min="0" data-f="paid" id="pd" value="${ED.paid}"></label></div>
+ <label style="margin-top:10px">Status<select id="st"><option value="Due">${t('Due')}</option><option value="Part">${t('Partially Paid')}</option><option value="Paid">${t('Paid')}</option></select></label>
+ <div class="tot" id="tot"></div><div class="bar sticky"><button class="btn g" data-a="close">${t('Cancel')}</button><button class="btn" data-a="saveDoc" style="flex:1">${t('Save')}</button></div>`);draw();totals()}
+const draw=()=>$('#its').innerHTML=ED.items.map((x,n)=>`<div class="item"><label>Item<input list="dp" data-n="${n}" data-k="n" value="${E(x.n)}"></label><label>${t('Qty')}<input type="number" min="0" step="any" data-n="${n}" data-k="q" value="${x.q}"></label><label>${t('Rate')}<input type="number" min="0" step="any" data-n="${n}" data-k="r" value="${x.r}"></label><label>${t('Discount')}<input type="number" min="0" data-n="${n}" data-k="d" value="${x.d}"></label><button class="btn r s" data-a="rm" data-id="${n}">✕</button></div>`).join('');
+function totals(){const c=calc(ED);$('#st').value=st(ED);$('#tot').innerHTML=`<div><span>${t('Subtotal')}</span><span>${fmt(c.sub)}</span></div><div><span>${t('Discount')}</span><span>− ${fmt(c.disc)}</span></div>${ED.vat?`<div><span>${t('VAT')} ${db.set.rate}%</span><span>${fmt(c.vat)}</span></div>`:''}<div class="g"><span>${t('Grand Total')}</span><span>${fmt(c.total)}</span></div><div><span>${t('Amount Due')}</span><span>${fmt(c.due)}</span></div>`}
+document.addEventListener('input',e=>{const el=e.target;if(el.id=='q'){S.q=el.value;$('#list').innerHTML=lst();return}if(!ED)return;
+ if(el.dataset.f)ED[el.dataset.f]=el.type=='number'?+el.value||0:el.value;
+ else if(el.dataset.k){const x=ED.items[el.dataset.n],k=el.dataset.k;x[k]=k=='n'?el.value:+el.value||0;
+  if(k=='n'){const last=[...db.docs].reverse().flatMap(d=>d.items).find(i=>i.n==el.value);if(last&&!x.r){x.r=last.r;el.closest('.item').querySelector('[data-k=r]').value=last.r}}}else return;totals()});
+document.addEventListener('change',e=>{const i=e.target.id;
+ if(i=='per'){S.per=e.target.value;render()}
+ if(ED&&i=='vt'){ED.vat=e.target.value=='1';totals()}
+ if(ED&&i=='st'){const v=e.target.value;ED.paid=v=='Paid'?calc(ED).total:v=='Due'?0:ED.paid;$('#pd').value=ED.paid;totals()}});
+/* printable sheet */
+function sheet(d){const s=db.set,c=calc(d),T=TY[d.t];return `<div class="sheet"><div class="hd"><div>${logoImg()}<b style="font-size:1.15rem">${E(s.name)}</b><br>${E(s.addr)}<br>${E(s.phone)}${s.pan?'<br>PAN/VAT: '+E(s.pan):''}</div><div style="text-align:right"><h2>${T.n.toUpperCase()}</h2>${E(d.no)}<br>${d.date}</div></div>
+<p><b>${T.who}:</b> ${E(d.party||'—')} ${E(d.phone)}</p><table><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr>${d.items.map(x=>`<tr><td>${E(x.n)}</td><td>${x.q}</td><td>${fmt(x.r)}</td><td>${fmt(x.q*x.r-(+x.d||0))}</td></tr>`).join('')}</table>
+<div class="tt"><div><span>Subtotal</span><span>${fmt(c.sub)}</span></div><div><span>Discount</span><span>− ${fmt(c.disc)}</span></div>${d.vat?`<div><span>VAT ${db.set.rate}%</span><span>${fmt(c.vat)}</span></div>`:''}<div class="ty"><span>Total</span><span>${fmt(c.total)}</span></div><div><span>Paid</span><span>${fmt(d.paid)}</span></div><div><span>Due</span><b>${fmt(c.due)}</b></div></div>
+${d.notes?`<p><b>Notes:</b> ${E(d.notes)}</p>`:''}${d.t=='estimate'?'<p><i>This is an estimate only, not a tax invoice.</i></p>':''}<p style="text-align:center;margin-top:16px">${E(s.foot)}</p></div>`}
+/* actions */
+const A={go(id){S.v=id;S.q='';render();scrollTo(0,0)},
+ new(){S.v=='Cashbook'?cashForm():editor(TY[S.v]?S.v:'sale')},newt(id){editor(id)},
+ lang(){db.set.lang=db.set.lang=='ne'?'en':'ne';sv();render()},theme(){db.set.theme=db.set.theme=='dark'?'light':'dark';sv();render()},
+ close,yes(){const f=CB;close();f&&f()},printpage(){window.print()},print(){window.print()},
+ additem(){ED.items.push({n:'',q:1,r:0,d:0});draw();totals()},rm(n){if(ED.items.length<2)return toast('At least one item needed',1);ED.items.splice(n,1);draw();totals()},
+ saveDoc(){ED.items=ED.items.filter(x=>x.n.trim()&&x.q>0);if(!ED.items.length){ED.items=[{n:'',q:1,r:0,d:0}];draw();return toast('Add at least one item with name and quantity',1)}
+  if(db.docs.some(x=>x.t==ED.t&&x.no==ED.no&&x.id!=ED.id))return toast('Number already exists',1);
+  ED.paid=Math.min(ED.paid,calc(ED).total);const k=db.docs.findIndex(x=>x.id==ED.id);k<0?db.docs.push(ED):db.docs[k]=ED;sv();const ty=ED.t;close();S.v=ty;render();toast('Saved ✓')},
+ view(id){const d=db.docs.find(x=>x.id==id);modal(sheet(d)+`<div class="bar noprint"><button class="btn g" data-a="close">Close</button><button class="btn" data-a="print">${t('Print / Save PDF')}</button></div>`)},
+ edit(id){editor(0,id)},
+ dup(id){const o=structuredClone(db.docs.find(x=>x.id==id));Object.assign(o,{id:uid(),no:nextNo(o.t),date:today(),paid:0});db.docs.push(o);sv();render();toast('Duplicated '+o.no)},
+ tosale(id){const o=structuredClone(db.docs.find(x=>x.id==id));Object.assign(o,{id:uid(),t:'sale',no:nextNo('sale'),date:today(),paid:0});db.docs.push(o);sv();S.v='sale';render();toast('Converted to '+o.no)},
+ del(id){ask('Delete this record permanently?',()=>{db.docs=db.docs.filter(x=>x.id!=id);sv();render();toast('Deleted')})},
+ saveset(){const g=k=>$('#s_'+k).value;if(!g('name').trim())return toast('Business name required',1);Object.assign(db.set,{name:g('name').trim(),addr:g('addr'),phone:g('phone'),pan:g('pan'),cur:g('cur')||'Rs.',foot:g('foot'),vat:g('vat')=='1',rate:+g('rate')||0});sv();render();toast('Settings saved ✓')},
+ export(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));a.download='nepali-bill-backup-'+today()+'.json';a.click()},
+ import(){$('#imp').click()},
+ clear(){ask('This erases ALL documents and settings. Export a backup first!',()=>{localStorage.removeItem(dk());loadDb();render();toast('All data cleared')})}};
+document.addEventListener('click',e=>{if(e.target.id=='modal')return close();const b=e.target.closest('[data-a]');if(b&&A[b.dataset.a])A[b.dataset.a](b.dataset.id,b)});
+$('#imp').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.docs)||!d.set)throw 0;db={set:{...DEF.set,...d.set},docs:d.docs,cash:d.cash||[]};sv();render();toast('Backup restored ✓')}catch(x){toast('Invalid backup file',1)}};r.readAsText(f);e.target.value=''};
+/* ===== v3: logo, login (Google / email), estimate, cashbook & vouchers ===== */
+document.head.insertAdjacentHTML('beforeend','<style>.login{position:fixed;inset:0;z-index:100;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;padding:16px;overflow:auto}</style>');
+const logoImg=()=>db.set.logo?`<img src="${db.set.logo}" style="width:84px;height:84px;object-fit:cover;background:#fff;border-radius:50%;border:3px solid #fff;margin-bottom:6px"><br>`:'';
+const CASH={in:{p:'RV-',n:'Receipt Voucher'},out:{p:'PV-',n:'Payment Voucher'}};
+const cashNo=ty=>CASH[ty].p+String(Math.max(0,...db.cash.filter(c=>c.type==ty).map(c=>parseInt(c.no.replace(/\D/g,''))||0))+1).padStart(4,'0');
+let CE=null;const LK={n:0,until:0},ACC=()=>{try{return JSON.parse(localStorage.getItem('nb2.accts'))||{}}catch(e){return{}}},canH=()=>window.crypto&&crypto.subtle;
+/* password hashing: PBKDF2-SHA256 (100k rounds) + random salt; passwords are never stored in plain text */
+async function hp(pw,salt,weak){const e=new TextEncoder();if(!weak&&canH()){const k=await crypto.subtle.importKey('raw',e.encode(pw),'PBKDF2',false,['deriveBits']),b=await crypto.subtle.deriveBits({name:'PBKDF2',salt:e.encode(salt),iterations:100000,hash:'SHA-256'},k,256);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}let h=5381;for(const c of salt+pw+salt)h=(h*33^c.charCodeAt(0))>>>0;return'w'+h}
+
+V.Cashbook=()=>{const L=db.cash.filter(c=>inR(c.date)),sm=ty=>L.filter(c=>c.type==ty).reduce((a,c)=>a+c.amt,0),all=db.cash.reduce((a,c)=>a+(c.type=='in'?c.amt:-c.amt),0);
+ return perSel()+`<div class="grid">${stat('Cash In',fmt(sm('in')))}${stat('Cash Out',fmt(sm('out')))}${stat('Balance',fmt(sm('in')-sm('out')))}${stat('Closing balance (all time)',fmt(all))}</div><div class="card"><h3>${t('Cashbook')}</h3>${L.length?[...L].sort((a,b)=>b.date.localeCompare(a.date)).map(c=>`<div class="row"><div class="i"><b>${E(c.no)} · ${E(c.head||'—')}</b><small>${c.date} · ${E(c.note)}</small></div><b style="color:var(--${c.type=='in'?'ok':'er'})">${c.type=='in'?'+':'−'}${fmt(c.amt)}</b><div class="acts"><button class="btn g s" data-a="cview" data-id="${c.id}">${t('Voucher')}</button><button class="btn g s" data-a="cedit" data-id="${c.id}">${t('Edit')}</button><button class="btn r s" data-a="cdel" data-id="${c.id}">✕</button></div></div>`).join(''):empty('No entries yet.')}</div>`};
+function cashForm(id){const o=id&&db.cash.find(c=>c.id==id);CE=o?{...o}:{id:uid(),type:'in',date:today(),amt:0,head:'',note:''};
+ modal(`<h3>${t('Voucher')}</h3><div class="fg"><div class="two"><label>Type<select id="ct"><option value="in">Cash In / Receipt</option><option value="out" ${CE.type=='out'?'selected':''}>Cash Out / Payment</option></select></label><label>${t('Date')}<input type="date" id="cd" value="${CE.date}"></label></div><label>Party / Head<input id="ch" value="${E(CE.head)}"></label><label>Amount<input type="number" min="0" step="any" id="ca" value="${CE.amt||''}"></label><label>${t('Notes')}<textarea id="cn">${E(CE.note)}</textarea></label></div><div class="bar"><button class="btn g" data-a="close">${t('Cancel')}</button><button class="btn" data-a="csave" style="flex:1">${t('Save')}</button></div>`)}
+const vsheet=c=>`<div class="sheet"><div class="hd"><div>${logoImg()}<b>${E(db.set.name)}</b><br>${E(db.set.addr)}<br>${E(db.set.phone)}</div><div style="text-align:right"><h2>${CASH[c.type].n.toUpperCase()}</h2>${E(c.no)}<br>${c.date}</div></div><p><b>${c.type=='in'?'Received from':'Paid to'}:</b> ${E(c.head||'—')}</p><p style="font-size:1.5rem;margin:12px 0"><b>${fmt(c.amt)}</b></p><p><b>Particulars:</b> ${E(c.note||'—')}</p><div style="display:flex;justify-content:space-between;margin-top:56px;gap:10px"><span style="border-top:1px solid #333;padding-top:4px">Receiver's signature</span><span style="border-top:1px solid #333;padding-top:4px">Authorized signature</span></div></div>`;
+Object.assign(A,{
+ csave(){const ty=$('#ct').value,amt=+$('#ca').value;if(!(amt>0))return toast('Enter an amount',1);const isNew=!db.cash.some(c=>c.id==CE.id),old=db.cash.find(c=>c.id==CE.id);
+  const c={id:CE.id,type:ty,date:$('#cd').value||today(),amt,head:$('#ch').value.trim(),note:$('#cn').value.trim(),no:(!old||old.type!=ty)?cashNo(ty):old.no};
+  isNew?db.cash.push(c):db.cash[db.cash.findIndex(x=>x.id==c.id)]=c;sv();close();S.v='Cashbook';render();toast('Saved ✓')},
+ cview(id){modal(vsheet(db.cash.find(c=>c.id==id))+`<div class="bar noprint"><button class="btn g" data-a="close">Close</button><button class="btn" data-a="print">${t('Print / Save PDF')}</button></div>`)},
+ cedit(id){cashForm(id)},cdel(id){ask('Delete this entry?',()=>{db.cash=db.cash.filter(c=>c.id!=id);sv();render()})},
+ rmlogo(){delete db.set.logo;sv();render()},
+ async emaillogin(){const em=$('#le').value.trim().toLowerCase(),pw=$('#lp').value,su=$('#sg').style.display!='none',ac=ACC();
+  if(!/^\S+@\S+\.\S+$/.test(em))return toast('Enter a valid email',1);
+  if(LK.until>Date.now())return toast('Too many attempts. Wait '+Math.ceil((LK.until-Date.now())/1000)+'s',1);
+  if(su){if(ac[em])return toast('Account exists. Please sign in',1);if(pw.length<6)return toast('Password must be at least 6 characters',1);if(pw!=$('#lp2').value)return toast('Passwords do not match',1);
+   const salt=uid()+uid(),name=$('#ln').value.trim();ac[em]={salt,name,h:await hp(pw,salt,!canH())};localStorage.setItem('nb2.accts',JSON.stringify(ac));login(em,name)}
+  else{const a=ac[em];if(!a)return toast('No account found. Tap "Create account"',1);
+   if(await hp(pw,a.salt,a.h[0]=='w')!=a.h){if(++LK.n>=5){LK.until=Date.now()+30000;LK.n=0}return toast('Wrong email or password',1)}LK.n=0;login(em,a.name)}},
+ lmode(){const su=$('#sg').style.display=='none';$('#sg').style.display=su?'grid':'none';$('#lbtn').textContent=su?'Create account':'Sign in';$('#lm').textContent=su?'Already have an account? Sign in':'New here? Create account'},
+ chpw(){modal(`<h3>Change password</h3><div class="fg"><label>Current password<input type="password" id="cp0"></label><label>New password (min 6 characters)<input type="password" id="cp1"></label></div><div class="bar"><button class="btn g" data-a="close">${t('Cancel')}</button><button class="btn" data-a="chsave">${t('Save')}</button></div>`)},
+ async chsave(){const ac=ACC(),a=ac[USER.email];if(!a)return toast('This account has no password (Google/guest)',1);if(await hp($('#cp0').value,a.salt,a.h[0]=='w')!=a.h)return toast('Current password is wrong',1);const n=$('#cp1').value;if(n.length<6)return toast('Minimum 6 characters',1);a.salt=uid()+uid();a.h=await hp(n,a.salt,!canH());localStorage.setItem('nb2.accts',JSON.stringify(ac));close();toast('Password changed ✓')},
+ guest(){login('guest','Guest')},
+ setgid(){const v=prompt('Paste your Google OAuth Client ID',localStorage.getItem('nb2.gcid')||'');if(v!==null){localStorage.setItem('nb2.gcid',v.trim());$('#login').remove();showLogin()}},
+ acct(){modal(`<h3>Account</h3><p>${E(USER?.name)}<br><small>${E(USER?.email)}</small></p><p class="legal">Your records are saved on this device under this account and appear again when you sign in with the same email.</p><div class="bar"><button class="btn g" data-a="close">Close</button><button class="btn g" data-a="chpw">Change password</button><button class="btn r" data-a="logout">${t('Sign out')}</button></div>`)},
+ logout(){localStorage.removeItem('nb2.user');USER=null;try{google.accounts.id.disableAutoSelect()}catch(e){}close();loadDb();render();showLogin()}});
+function login(email,name,pic){email=String(email).trim().toLowerCase();if(email!='guest'&&!/^\S+@\S+\.\S+$/.test(email))return toast('Enter a valid email',1);
+ USER={email,name:(name||'').trim()||email.split('@')[0],pic};localStorage.setItem('nb2.user',JSON.stringify(USER));loadDb();$('#login')?.remove();S.v='Dashboard';render();toast('Welcome '+USER.name)}
+function showLogin(){const d=document.createElement('div');d.className='login';d.id='login';
+ d.innerHTML=`<div class="card" style="max-width:380px;width:100%"><div style="text-align:center"><div class="logo" style="margin:auto;background:var(--ac);color:#fff">NB</div><h3 style="margin-top:8px">Nepali Bill</h3><small style="color:var(--mu)">Simple Billing. Smarter Records.</small></div><div id="gb" style="display:flex;justify-content:center;margin:16px 0 8px;min-height:44px"></div><p class="legal" id="gnote" style="margin:0 0 12px"></p><div class="fg"><label>Email<input id="le" type="email" autocomplete="username" placeholder="you@example.com"></label><label>Password<input id="lp" type="password" autocomplete="current-password"></label><div id="sg" class="fg" style="display:none"><label>Confirm password<input id="lp2" type="password"></label><label>Your name (optional)<input id="ln"></label></div><button class="btn" data-a="emaillogin" id="lbtn">Sign in</button><button class="btn g s" data-a="lmode" id="lm">New here? Create account</button><button class="btn g" data-a="guest">Continue without login</button><button class="btn g s" data-a="setgid">Set Google Client ID</button></div><p class="legal">Records are stored on this device under your email and protected by your password (stored only as a salted hash). Forgotten passwords cannot be recovered, so keep a JSON backup. Earlier email-only users: choose Create account with the same email to keep your records.</p></div>`;
+ document.body.append(d);initGoogle()}
+function initGoogle(){const id=GOOGLE_CLIENT_ID||localStorage.getItem('nb2.gcid'),n=$('#gnote');
+ if(!id){n.textContent='Google sign-in is off until a Google Client ID is set. Email sign-in works now.';return}
+ if(!navigator.onLine||location.protocol=='file:'){n.textContent='Google sign-in needs internet and the app hosted on https (Netlify / GitHub Pages). Use email sign-in meanwhile.';return}
+ const sc=document.createElement('script');sc.src='https://accounts.google.com/gsi/client';
+ sc.onload=()=>{google.accounts.id.initialize({client_id:id,callback:r=>{try{const p=JSON.parse(decodeURIComponent(escape(atob(r.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')))));login(p.email,p.name,p.picture)}catch(e){toast('Google sign-in failed',1)}}});google.accounts.id.renderButton($('#gb'),{theme:'outline',size:'large',width:280})};
+ sc.onerror=()=>n.textContent='Could not load Google. Use email sign-in.';document.head.append(sc)}
+document.addEventListener('change',e=>{if(e.target.id!='lg')return;const f=e.target.files[0];if(!f)return;const im=new Image();
+ im.onload=()=>{const m=Math.min(im.width,im.height),c=document.createElement('canvas');c.width=c.height=300;c.getContext('2d').drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,300,300);db.set.logo=c.toDataURL('image/png');sv();render();toast('Logo saved ✓')};
+ im.onerror=()=>toast('Invalid image',1);im.src=URL.createObjectURL(f)});
+render();if(!USER)showLogin();
+</script></body></html>
